@@ -1,5 +1,7 @@
 package com.bonjourcs.algorithm.basic;
 
+import java.util.Arrays;
+
 /**
  * @author Liang Chenghao
  * Description: a binary search algorithm
@@ -19,9 +21,17 @@ public class BinarySearch {
 		int low = 0;
 		int high = a.length - 1;
 
+		// sort array first
+		Arrays.sort(a);
+
 		int mid;
 		while (low <= high) {
-			mid = low + (high - low) / 2;
+			// this works, 'mid = (high+low) / 2' may cause underlying bug
+			// |> high+low could cause ArrayIndexOutOfBoundsException
+			mid = low + ((high - low) >> 1);
+//			mid = (low + high) >> 1;
+			// this works, too
+//			mid = (low + high) >>> 1;
 			if (a[mid] == key) {
 				return mid;
 			} else if (a[mid] < key) {

@@ -23,6 +23,8 @@ public class BinarySearchTest {
 		Assert.assertEquals(3, BinarySearch.search(c, 4));
 		int[] d = {1, 2, 3, 4, 5, 6, 7};
 		Assert.assertEquals(-1, BinarySearch.search(d, 8));
+		int[] e = {7, 6, 1, 4, 5, 3, 2};
+		Assert.assertEquals(3, BinarySearch.search(e, 4));
 
 	}
 }
